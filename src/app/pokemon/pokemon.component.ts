@@ -25,9 +25,9 @@ export class PokemonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getInformationPokemon();
     this.isLoading = false;
     this.pokemon = new Pokemon();
+    this.getInformationPokemon();
   }
 
   getInformationPokemon(): void {
