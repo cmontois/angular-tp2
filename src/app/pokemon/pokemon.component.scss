@@ -1,0 +1,29 @@
+.pokemon-card {
+  width: 500px;
+
+  .pokemon-card-first-col {
+    text-align: center;
+
+    .pokemon-card-image {
+      img {
+        width: 150px;
+      }
+    }
+  }
+
+  .pokemon-card-name {
+    text-transform: capitalize;
+  }
+
+  .pokemon-card-type {
+    margin-right: 5px;
+  }
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}

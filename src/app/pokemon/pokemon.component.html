@@ -1,0 +1,47 @@
+<mat-card *ngIf="isLoading" class="pokemon-card centered">
+  <!-- 2 Col -->
+  <mat-grid-list cols="2">
+
+    <!-- Image + No -->
+    <mat-grid-tile class="pokemon-card-first-col">
+      <div class="pokemon-card-image" >
+        <img src="assets/pokemon-sprites/official-artwork/{{ pokemon.id }}.png" alt="Photo of a Pokemon">
+        <p>No. {{ pokemon.id | number: '3.0-0'}}</p>
+      </div>
+    </mat-grid-tile>
+
+    <!-- Liste Info -->
+    <mat-grid-tile class="pokemon-card-second-col">
+      <div class="pokemon-card-content">
+        <mat-list>
+          <mat-list-item>
+            <h3 matLine class="pokemon-card-name">{{ pokemon.name }}</h3>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-chip-list *ngFor="let type of pokemon.types">
+              <mat-chip class="pokemon-card-type">{{ type }}</mat-chip>
+            </mat-chip-list>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 matLine class="pokemon-list-name">Taille: {{ pokemon.height/10 | number:'2.1-1'}} m</h3>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 matLine class="pokemon-list-name">Poids: {{ pokemon.weight/10 | number:'2.1-1'}} kg</h3>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <!-- Description -->
+  <p>{{ pokemon.description }}</p>
+
+  <!-- Back Button -->
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">BACK</button>
+  </mat-card-actions>
+
+</mat-card>
+
+<mat-spinner class="centered" *ngIf="!isLoading"></mat-spinner>
