@@ -1,24 +1,13 @@
 .pokemon-list {
-  height: 275px;
-  width: 200px;
-  margin-top: 30px;
-  text-align: center;
-
-  .pokemon-list-image {
-    height: 50px;
-    width: auto;
-  }
-
   .pokemon-list-name {
-    text-align: left;
     text-transform: capitalize;
   }
 }
 
 .centered {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
