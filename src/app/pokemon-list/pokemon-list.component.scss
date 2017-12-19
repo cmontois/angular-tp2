@@ -5,9 +5,8 @@
 }
 
 .centered {
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
