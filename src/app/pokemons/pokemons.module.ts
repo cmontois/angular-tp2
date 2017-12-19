@@ -12,10 +12,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 //Pokemon Module Stuff
-import { PokemonListComponent } from '../pokemon-list/pokemon-list.component';
-import { PokemonService } from '../pokemon.service';
-import { PokemonTypeService } from '../pokemon-type.service';
-import { PokemonComponent } from '../pokemon/pokemon.component';
+import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonService } from './pokemon.service';
+import { PokemonTypeService } from './pokemon-type.service';
+import { PokemonComponent } from './pokemon/pokemon.component';
 
 @NgModule({
   imports: [
