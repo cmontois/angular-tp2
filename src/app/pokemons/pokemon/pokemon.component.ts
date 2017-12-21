@@ -16,6 +16,7 @@ import { PokemonPayload } from '../pokemon-payload';
 export class PokemonComponent implements OnInit {
   pokemon: Pokemon;
   isLoading: boolean;
+  id: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,14 +26,14 @@ export class PokemonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.id = 1;
     this.isLoading = false;
     this.pokemon = new Pokemon();
     this.getInformationPokemon();
   }
 
   getInformationPokemon(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.pokemonService.getInformationPokemon(id)
+    this.pokemonService.getInformationPokemon(this.id)
       .subscribe(pokemonInformation => {
           this.pokemon.height = pokemonInformation.height
           this.pokemon.weight = pokemonInformation.weight
@@ -49,8 +50,7 @@ export class PokemonComponent implements OnInit {
   }
 
   getDescriptionPokemon(): void {
-      const id = +this.route.snapshot.paramMap.get('id');
-      this.pokemonService.getDescriptionPokemon(id)
+      this.pokemonService.getDescriptionPokemon(this.id)
         .subscribe(pokemonDescription => {
             this.pokemon.description = pokemonDescription.flavor_text_entries.find(obj => obj.language.name == 'fr').flavor_text;
             this.pokemon.name = pokemonDescription.names.find(obj => obj.language.name == 'fr').name;

@@ -1,7 +1,15 @@
 <mat-nav-list *ngIf="pokemons" class="pokemon-list">
-  <mat-list-item *ngFor="let pokemon of pokemons; let i = index" routerLink="/pokemon/{{ i+1 }}">
-    <img matListAvatar src="assets/pokemon-sprites/official-artwork/{{ i+1 }}.png" alt="Photo of a Pokemon">
-    <h3 matLine class="pokemon-list-name"> {{ i+1 }}. {{ pokemon.name }}</h3>
+
+  <form class="pokedex-sidenav-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" [(ngModel)]="pokemon" matInput placeholder="Pokemon Name" name="pokemon">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+  </form>
+
+  <mat-list-item *ngFor="let pokemon of pokemons | filter : pokemon;" (click)="changePokemonDetail(pokemon.id)">
+    <img matListAvatar src="assets/pokemon-sprites/official-artwork/{{ pokemon.id }}.png" alt="Photo of a Pokemon">
+    <h3 matLine class="pokemon-list-name"> {{ pokemon.id | number: '3.0-0'}}. {{ pokemon.name }}</h3>
   </mat-list-item>
 </mat-nav-list>
 
