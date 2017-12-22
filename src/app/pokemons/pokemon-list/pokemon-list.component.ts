@@ -29,9 +29,4 @@ export class PokemonListComponent implements OnInit {
     });
   }
 
-  changePokemonDetail(index: number): void {
-
-    console.log(index);
-  }
-
 }
