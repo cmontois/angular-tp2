@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { PokemonService }  from '../pokemon.service';
@@ -19,17 +19,26 @@ export class PokemonComponent implements OnInit {
   id: number;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private pokemonService: PokemonService,
     private pokemonTypeService: PokemonTypeService,
     private location: Location
-  ) {}
+  ) {
+    router.events.subscribe(
+      event =>
+      {
+        if( event instanceof NavigationEnd ){
+          this.id = +this.route.snapshot.paramMap.get('id');
+          this.isLoading = false;
+          this.pokemon = new Pokemon();
+          this.getInformationPokemon();
+        }
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.id = 1;
-    this.isLoading = false;
-    this.pokemon = new Pokemon();
-    this.getInformationPokemon();
   }
 
   getInformationPokemon(): void {

@@ -7,7 +7,7 @@
     </mat-form-field>
   </form>
 
-  <mat-list-item *ngFor="let pokemon of pokemons | filter : pokemon;" (click)="changePokemonDetail(pokemon.id)">
+  <mat-list-item *ngFor="let pokemon of pokemons | filter : pokemon;" routerLink="/pokedex/{{pokemon.id}}">
     <img matListAvatar src="assets/pokemon-sprites/official-artwork/{{ pokemon.id }}.png" alt="Photo of a Pokemon">
     <h3 matLine class="pokemon-list-name"> {{ pokemon.id | number: '3.0-0'}}. {{ pokemon.name }}</h3>
   </mat-list-item>

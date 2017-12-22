@@ -8,12 +8,12 @@ export class FilterPipe implements PipeTransform {
   transform(pokemons: any, args?: any): any {
     if(args === undefined) return pokemons;
     return pokemons.filter(function(pokemon){
+      let pokemonNumber = ('00' + pokemon.id).slice(-3);
       if(
-        ('00' + pokemon.id).slice(-3).toString().includes(args) ||
+        pokemonNumber.toString().includes(args) ||
         pokemon.name.toLowerCase().includes(args.toLowerCase())
-      ) {
+      )
         return pokemon;
-      }
     })
   }
 

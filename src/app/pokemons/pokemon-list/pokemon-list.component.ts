@@ -24,13 +24,13 @@ export class PokemonListComponent implements OnInit {
   getPokemons(): void {
     this.pokemonService.getPokemons().subscribe((pokemons: PokemonPayload) => {
       this.pokemons = pokemons.results;
-      //TODO map in pokemons to add id in object Pokemon
       this.pokemons.map((pokemon, index) => pokemon.id = index+1);
       console.log(this.pokemons);
     });
   }
 
   changePokemonDetail(index: number): void {
+
     console.log(index);
   }
 
